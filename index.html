@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gentel | About Me</title>
+    <title>Gentel | Developer & Programmer</title>
     <style>
         /* Modern Reset & Base Styles */
         * {
@@ -28,6 +28,13 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Glow Effect for Sky Blue Accents */
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px rgba(30, 144, 255, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(30, 144, 255, 0.8); }
+            100% { text-shadow: 0 0 5px rgba(30, 144, 255, 0.5); }
         }
 
         /* Main Layout */
@@ -60,6 +67,7 @@
             font-weight: bold;
             color: #1e90ff;
             text-decoration: none;
+            animation: glow 2s infinite;
         }
 
         .nav-links a {
@@ -71,6 +79,7 @@
 
         .nav-links a:hover {
             color: #1e90ff;
+            text-shadow: 0 0 10px rgba(30, 144, 255, 0.7);
         }
 
         /* Hero Section */
@@ -80,6 +89,7 @@
             align-items: center;
             text-align: center;
             padding-top: 80px;
+            background: radial-gradient(circle at center, #1e90ff10 0%, #0a0a0a 70%);
         }
 
         .hero h1 {
@@ -110,7 +120,8 @@
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(30, 144, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(30, 144, 255, 0.5);
+            background: linear-gradient(45deg, #1e90ff, #00bfff);
         }
 
         /* About Me Section */
@@ -119,6 +130,8 @@
             background: #111;
             border-radius: 20px;
             margin: 50px 0;
+            border: 1px solid #1e90ff33;
+            box-shadow: 0 0 30px #1e90ff10;
         }
 
         .about h2 {
@@ -126,6 +139,7 @@
             margin-bottom: 30px;
             color: #1e90ff;
             text-align: center;
+            animation: glow 2s infinite;
         }
 
         .about-content {
@@ -139,8 +153,35 @@
         }
 
         .about-text p {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #ccc;
+            font-size: 1.1rem;
+        }
+
+        .about-text strong {
+            color: #1e90ff;
+        }
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            padding: 10px 20px;
+            background: #1e90ff20;
+            color: #1e90ff;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+            border: 1px solid #1e90ff50;
+        }
+
+        .social-links a:hover {
+            background: #1e90ff;
+            color: #fff;
+            transform: translateY(-3px);
         }
 
         .profile-img {
@@ -152,7 +193,7 @@
             width: 300px;
             border-radius: 20px;
             border: 3px solid #1e90ff;
-            box-shadow: 0 10px 30px rgba(30, 144, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(30, 144, 255, 0.3);
         }
 
         /* Footer */
@@ -197,8 +238,8 @@
     <section class="hero">
         <div class="container">
             <h1>Hello, I'm Gentel</h1>
-            <p>Welcome to my personal space. I create, design, and explore the digital world.</p>
-            <a href="#about" class="btn">Discover More</a>
+            <p>A developer & programmer who loves building things for the digital world.</p>
+            <a href="#about" class="btn">Get to Know Me</a>
         </div>
     </section>
 
@@ -208,12 +249,18 @@
             <h2>About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Hey there! I'm Gentel, a passionate creator with a love for design, technology, and storytelling. I believe in the power of simplicity and elegance.</p>
-                    <p>My journey started years ago when I first discovered the magic of turning ideas into digital experiences. Since then, I've been on a mission to craft beautiful, functional, and meaningful work.</p>
-                    <p>When I'm not coding or designing, you can find me exploring nature, reading books, or sipping on a cup of coffee while brainstorming my next project.</p>
+                    <p><strong>Hi, I'm Gentel.</strong> I'm a <strong>developer/programmer</strong> passionate about coding and technology.</p>
+                    <p>I work on <strong>Linux/Windows</strong> and enjoy exploring new tools and frameworks.</p>
+                    <p>I'm from <strong>Hail</strong>, and I'm currently <strong>17 years old</strong>.</p>
+                    <p>When I'm not coding, I like gaming and connecting with people online.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://guns.lol/tf5m" target="_blank">Guns.lol</a>
+                        <a href="https://tellonym.me/igentel" target="_blank">Tellonym</a>
+                    </div>
                 </div>
                 <div class="profile-img">
-                    <!-- Placeholder for your image (replace with your own) -->
+                    <!-- Replace with your image -->
                     <img src="https://via.placeholder.com/300" alt="Gentel's Profile Picture">
                 </div>
             </div>
@@ -223,7 +270,7 @@
     <!-- Footer -->
     <footer id="contact">
         <div class="container">
-            <p>© 2024 Gentel. All rights reserved.</p>
+            <p>© 2024 Gentel. Built with passion.</p>
         </div>
     </footer>
 </body>

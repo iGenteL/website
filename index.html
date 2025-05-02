@@ -71,7 +71,7 @@
         
         .header-title {
             text-align: center;
-            padding: 80px 0 20px;
+            padding: 100px 0 30px;
         }
         
         .header-title h1 {
@@ -84,6 +84,22 @@
         .header-title p {
             font-size: 1rem;
             color: #94A3B8;
+        }
+        
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--sky-blue);
+            margin: 0 auto 20px;
+            box-shadow: 0 0 20px rgba(135, 206, 235, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .profile-pic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(135, 206, 235, 0.6);
         }
         
         .nav-links {
@@ -106,7 +122,7 @@
         .language-toggle {
             display: flex;
             gap: 10px;
-            margin: 30px auto;
+            margin: 25px auto;
             justify-content: center;
         }
         
@@ -235,12 +251,21 @@
         }
         
         @media (max-width: 768px) {
+            .header-title {
+                padding: 80px 0 25px;
+            }
+            
             .header-title h1 {
                 font-size: 1.3rem;
             }
             
             .header-title p {
                 font-size: 0.9rem;
+            }
+            
+            .profile-pic {
+                width: 100px;
+                height: 100px;
             }
             
             .section-title {
@@ -278,8 +303,9 @@
     <!-- Main Content -->
     <main>
         <div class="container">
-            <!-- Small Header Title -->
+            <!-- Small Header Title with Profile Pic -->
             <div class="header-title">
+                <img src="https://cdn.discordapp.com/avatars/1024767702239297567/490767471992229fa31fd6e05a6acbec.webp?size=1024" alt="Gentel" class="profile-pic">
                 <h1>Developer & Programmer | مطور و مبرمج</h1>
                 <p>Passionate about technology and coding | شغوف بالتكنولوجيا والبرمجة</p>
             </div>
@@ -299,9 +325,8 @@
                         <p>I am a <strong>developer / programmer</strong></p>
                         <p>I use <strong>Linux and Windows</strong></p>
                         <p>I love <strong>Virtual Machines</strong></p>
-                        <p>My Programming Languages:</p>
-                        <p><strong>JavaScript / Python</strong> Trying to learn <strong>C++</strong></p>
-                        <p>I am <strong>17</strong></p>
+                        <p>My Programming Language:</p>
+                        <p><strong>JavaScript / Python</strong> Trying To Learn <strong>C++</strong></p>
                         <p>From <strong>Hail</strong></p>
                     </div>
                     
@@ -310,11 +335,8 @@
                         <p><strong>السلام عليكم انا جنتل</strong></p>
                         <p>انا <strong>مطور / مبرمج</strong></p>
                         <p>استعمل <strong>لينكس و ويندوز</strong></p>
-                        <p>احب <strong>الفيرتشل مشين الي هو الجهاز الوهمي</strong></p>
-                        <p>استعمل لغة:</p>
-                        <p><strong>جافا سكربت / بايثون</strong> و <strong>سي بلس بلس قيد التعليم</strong></p>
-                        <p>عمري <strong>17</strong></p>
-                        <p>من <strong>حايل</strong></p>
+                        <p>لغة: <strong>جافا سكربت / بايثون / و سي بلس بلس قيد التعليم</strong></p>
+                        <p>من وين؟ <strong>حايل</strong></p>
                     </div>
                 </div>
             </section>

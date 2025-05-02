@@ -3,57 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gentel | Developer & Programmer</title>
+    <title>Gentel | مطور وبرمجي</title>
     <style>
-        /* Modern Reset & Base Styles */
+        /* Modern Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             background-color: #0a0a0a;
             color: #f0f0f0;
-            line-height: 1.6;
-            overflow-x: hidden;
+            line-height: 1.8;
         }
 
-        /* Smooth Scroll & Animations */
-        html {
-            scroll-behavior: smooth;
+        /* Cyan/Snow Blue Color Scheme */
+        :root {
+            --cyan: #00e1ff;
+            --snow-blue: #b0f2ff;
+            --dark-bg: #0a0a0a;
+            --card-bg: #111;
         }
 
+        /* Smooth Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Glow Effect for Sky Blue Accents */
         @keyframes glow {
-            0% { text-shadow: 0 0 5px rgba(30, 144, 255, 0.5); }
-            50% { text-shadow: 0 0 20px rgba(30, 144, 255, 0.8); }
-            100% { text-shadow: 0 0 5px rgba(30, 144, 255, 0.5); }
+            0%, 100% { text-shadow: 0 0 10px rgba(0, 225, 255, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(0, 225, 255, 0.8); }
         }
 
-        /* Main Layout */
+        /* Layout */
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
-            animation: fadeIn 1s ease-out;
         }
 
-        /* Header & Navigation */
+        /* Header */
         header {
-            background: rgba(10, 10, 10, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
             position: fixed;
             width: 100%;
-            z-index: 100;
             padding: 20px 0;
-            border-bottom: 1px solid #1e90ff33;
+            z-index: 100;
+            border-bottom: 1px solid var(--cyan);
         }
 
         nav {
@@ -65,21 +65,22 @@
         .logo {
             font-size: 28px;
             font-weight: bold;
-            color: #1e90ff;
-            text-decoration: none;
-            animation: glow 2s infinite;
+            background: linear-gradient(90deg, var(--cyan), var(--snow-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s infinite;
         }
 
         .nav-links a {
-            color: #f0f0f0;
+            color: #ccc;
             text-decoration: none;
-            margin-left: 30px;
-            transition: color 0.3s;
+            margin-left: 25px;
+            transition: all 0.3s;
         }
 
         .nav-links a:hover {
-            color: #1e90ff;
-            text-shadow: 0 0 10px rgba(30, 144, 255, 0.7);
+            color: var(--cyan);
+            text-shadow: 0 0 10px rgba(0, 225, 255, 0.5);
         }
 
         /* Hero Section */
@@ -89,133 +90,148 @@
             align-items: center;
             text-align: center;
             padding-top: 80px;
-            background: radial-gradient(circle at center, #1e90ff10 0%, #0a0a0a 70%);
+            background: radial-gradient(circle at center, #00e1ff10 0%, transparent 70%);
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #1e90ff, #00bfff);
+            background: linear-gradient(90deg, var(--cyan), var(--snow-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
             font-size: 1.2rem;
+            color: #aaa;
             max-width: 700px;
             margin: 0 auto 30px;
-            color: #aaa;
         }
 
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            background: #1e90ff;
-            color: #fff;
+            background: linear-gradient(90deg, var(--cyan), var(--snow-blue));
+            color: #000;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(30, 144, 255, 0.5);
-            background: linear-gradient(45deg, #1e90ff, #00bfff);
+            box-shadow: 0 10px 20px rgba(0, 225, 255, 0.3);
         }
 
         /* About Me Section */
         .about {
             padding: 100px 0;
-            background: #111;
+            text-align: center;
+        }
+
+        .about-card {
+            background: var(--card-bg);
             border-radius: 20px;
-            margin: 50px 0;
-            border: 1px solid #1e90ff33;
-            box-shadow: 0 0 30px #1e90ff10;
+            padding: 50px;
+            margin: 0 auto;
+            max-width: 800px;
+            border: 1px solid var(--cyan);
+            box-shadow: 0 0 30px #00e1ff20;
+            animation: fadeIn 1s;
         }
 
         .about h2 {
             font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #1e90ff;
-            text-align: center;
-            animation: glow 2s infinite;
+            margin-bottom: 40px;
+            color: var(--cyan);
         }
 
         .about-content {
             display: flex;
-            align-items: center;
-            gap: 40px;
+            flex-direction: column;
+            gap: 25px;
         }
 
-        .about-text {
-            flex: 1;
+        .bio {
+            margin-bottom: 30px;
         }
 
-        .about-text p {
+        .bio p {
             margin-bottom: 15px;
-            color: #ccc;
+            color: #ddd;
             font-size: 1.1rem;
         }
 
-        .about-text strong {
-            color: #1e90ff;
+        .bio strong {
+            color: var(--snow-blue);
+        }
+
+        .language-toggle {
+            margin: 20px 0;
+        }
+
+        .language-toggle button {
+            background: transparent;
+            color: var(--cyan);
+            border: 1px solid var(--cyan);
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .language-toggle button.active {
+            background: var(--cyan);
+            color: #000;
+            font-weight: bold;
         }
 
         .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             margin-top: 30px;
         }
 
         .social-links a {
             display: inline-block;
-            margin-right: 15px;
-            padding: 10px 20px;
-            background: #1e90ff20;
-            color: #1e90ff;
+            padding: 10px 25px;
+            background: #00e1ff10;
+            color: var(--cyan);
             border-radius: 50px;
             text-decoration: none;
-            transition: background 0.3s, transform 0.3s;
-            border: 1px solid #1e90ff50;
+            border: 1px solid var(--cyan);
+            transition: all 0.3s;
         }
 
         .social-links a:hover {
-            background: #1e90ff;
-            color: #fff;
+            background: var(--cyan);
+            color: #000;
             transform: translateY(-3px);
-        }
-
-        .profile-img {
-            flex: 1;
-            text-align: center;
-        }
-
-        .profile-img img {
-            width: 300px;
-            border-radius: 20px;
-            border: 3px solid #1e90ff;
-            box-shadow: 0 10px 30px rgba(30, 144, 255, 0.3);
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px 0;
-            background: #0a0a0a;
-            border-top: 1px solid #1e90ff33;
+            padding: 40px 0;
+            margin-top: 50px;
+            border-top: 1px solid #00e1ff20;
         }
 
         footer p {
             color: #666;
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-            }
-
             .hero h1 {
                 font-size: 2.5rem;
+            }
+            
+            .about-card {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -237,31 +253,44 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Hello, I'm Gentel</h1>
-            <p>A developer & programmer who loves building things for the digital world.</p>
-            <a href="#about" class="btn">Get to Know Me</a>
+            <h1>Gentel | جنتل</h1>
+            <p>Developer & Programmer | مطور وبرمجي</p>
+            <a href="#about" class="btn">About Me | تعرف علي</a>
         </div>
     </section>
 
     <!-- About Me Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p><strong>Hi, I'm Gentel.</strong> I'm a <strong>developer/programmer</strong> passionate about coding and technology.</p>
-                    <p>I work on <strong>Linux/Windows</strong> and enjoy exploring new tools and frameworks.</p>
-                    <p>I'm from <strong>Hail</strong>, and I'm currently <strong>17 years old</strong>.</p>
-                    <p>When I'm not coding, I like gaming and connecting with people online.</p>
+            <div class="about-card">
+                <h2>About Me | عني</h2>
+                
+                <div class="language-toggle">
+                    <button onclick="showEnglish()" class="active">English</button>
+                    <button onclick="showArabic()">العربية</button>
+                </div>
+                
+                <div class="about-content">
+                    <!-- English Bio -->
+                    <div id="english-bio" class="bio">
+                        <p><strong>Hi, I'm Gentel.</strong> I'm a <strong>developer/programmer</strong> passionate about coding and technology.</p>
+                        <p>I work on <strong>Linux/Windows</strong> and enjoy exploring new tools.</p>
+                        <p>I'm from <strong>Hail, Saudi Arabia</strong>, and I'm <strong>17 years old</strong>.</p>
+                        <p>When I'm not coding, I like gaming and connecting with people online.</p>
+                    </div>
+                    
+                    <!-- Arabic Bio -->
+                    <div id="arabic-bio" class="bio" style="display: none;">
+                        <p><strong>مرحباً، أنا جنتل.</strong> أنا <strong>مطور/مبرمج</strong> شغوف بالبرمجة والتكنولوجيا.</p>
+                        <p>أعمل على <strong>لينكس وويندوز</strong> وأحب استكشاف الأدوات الجديدة.</p>
+                        <p>أنا من <strong>حائل، السعودية</strong>، وعمري <strong>17 سنة</strong>.</p>
+                        <p>عندما لا أكون أبرمج، أحب الألعاب والتواصل مع الآخرين.</p>
+                    </div>
                     
                     <div class="social-links">
                         <a href="https://guns.lol/tf5m" target="_blank">Guns.lol</a>
                         <a href="https://tellonym.me/igentel" target="_blank">Tellonym</a>
                     </div>
-                </div>
-                <div class="profile-img">
-                    <!-- Replace with your image -->
-                    <img src="https://via.placeholder.com/300" alt="Gentel's Profile Picture">
                 </div>
             </div>
         </div>
@@ -270,8 +299,24 @@
     <!-- Footer -->
     <footer id="contact">
         <div class="container">
-            <p>© 2024 Gentel. Built with passion.</p>
+            <p>© 2024 Gentel. All Rights Reserved</p>
         </div>
     </footer>
+
+    <script>
+        function showEnglish() {
+            document.getElementById('english-bio').style.display = 'block';
+            document.getElementById('arabic-bio').style.display = 'none';
+            document.querySelector('.language-toggle button:nth-child(1)').classList.add('active');
+            document.querySelector('.language-toggle button:nth-child(2)').classList.remove('active');
+        }
+        
+        function showArabic() {
+            document.getElementById('english-bio').style.display = 'none';
+            document.getElementById('arabic-bio').style.display = 'block';
+            document.querySelector('.language-toggle button:nth-child(1)').classList.remove('active');
+            document.querySelector('.language-toggle button:nth-child(2)').classList.add('active');
+        }
+    </script>
 </body>
 </html>

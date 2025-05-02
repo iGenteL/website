@@ -3,63 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gentel | مطور وبرمجي</title>
+    <title>Gentel | Developer & Programmer</title>
     <style>
-        /* Modern Reset */
+        /* Modern Cyberpunk-Inspired Theme */
+        :root {
+            --cyan: #00f2fe;
+            --snow-blue: #a0f6ff;
+            --neon-blue: #00d0ff;
+            --dark-bg: #0a0a12;
+            --card-bg: #11111a;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Tahoma', sans-serif;
         }
 
         body {
-            background-color: #0a0a0a;
-            color: #f0f0f0;
+            background: var(--dark-bg);
+            color: #e0e0e0;
             line-height: 1.8;
+            overflow-x: hidden;
         }
 
-        /* Cyan/Snow Blue Color Scheme */
-        :root {
-            --cyan: #00e1ff;
-            --snow-blue: #b0f2ff;
-            --dark-bg: #0a0a0a;
-            --card-bg: #111;
-        }
-
-        /* Smooth Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        /* Glow Animations */
         @keyframes glow {
-            0%, 100% { text-shadow: 0 0 10px rgba(0, 225, 255, 0.5); }
-            50% { text-shadow: 0 0 20px rgba(0, 225, 255, 0.8); }
+            0%, 100% { text-shadow: 0 0 10px var(--cyan); }
+            50% { text-shadow: 0 0 20px var(--neon-blue); }
         }
 
-        /* Layout */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Header */
         header {
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(8px);
+            background: rgba(10, 10, 18, 0.95);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             padding: 20px 0;
-            z-index: 100;
+            z-index: 1000;
             border-bottom: 1px solid var(--cyan);
+            box-shadow: 0 0 20px #00f2fe30;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .logo {
@@ -72,15 +70,31 @@
         }
 
         .nav-links a {
-            color: #ccc;
+            color: #b0b0b0;
             text-decoration: none;
             margin-left: 25px;
+            font-weight: 500;
             transition: all 0.3s;
+            position: relative;
         }
 
         .nav-links a:hover {
             color: var(--cyan);
-            text-shadow: 0 0 10px rgba(0, 225, 255, 0.5);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--cyan);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
@@ -90,120 +104,147 @@
             align-items: center;
             text-align: center;
             padding-top: 80px;
-            background: radial-gradient(circle at center, #00e1ff10 0%, transparent 70%);
+            background: radial-gradient(circle at 70% 30%, #00f2fe10 0%, transparent 50%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, #00d0ff05 0%, transparent 70%);
+            animation: float 15s infinite linear;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 20px;
             background: linear-gradient(90deg, var(--cyan), var(--snow-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: #aaa;
+            font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto 30px;
+            color: #b0b0b0;
         }
 
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            background: linear-gradient(90deg, var(--cyan), var(--snow-blue));
+            background: linear-gradient(90deg, var(--cyan), var(--neon-blue));
             color: #000;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 225, 255, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.5);
         }
 
-        /* About Me Section */
-        .about {
+        /* About Section */
+        .section {
             padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
             text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            background: linear-gradient(90deg, var(--cyan), var(--snow-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .about-card {
             background: var(--card-bg);
             border-radius: 20px;
             padding: 50px;
+            max-width: 900px;
             margin: 0 auto;
-            max-width: 800px;
             border: 1px solid var(--cyan);
-            box-shadow: 0 0 30px #00e1ff20;
-            animation: fadeIn 1s;
-        }
-
-        .about h2 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: var(--cyan);
+            box-shadow: 0 0 40px #00f2fe20;
+            backdrop-filter: blur(5px);
         }
 
         .about-content {
             display: flex;
-            flex-direction: column;
-            gap: 25px;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .profile-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .profile-img img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--cyan);
+            box-shadow: 0 0 30px var(--cyan);
+            transition: transform 0.5s;
+        }
+
+        .profile-img img:hover {
+            transform: scale(1.05) rotate(5deg);
         }
 
         .bio {
-            margin-bottom: 30px;
+            flex: 1;
+            text-align: left;
         }
 
         .bio p {
-            margin-bottom: 15px;
-            color: #ddd;
+            margin-bottom: 20px;
+            color: #d0d0d0;
             font-size: 1.1rem;
         }
 
         .bio strong {
             color: var(--snow-blue);
-        }
-
-        .language-toggle {
-            margin: 20px 0;
-        }
-
-        .language-toggle button {
-            background: transparent;
-            color: var(--cyan);
-            border: 1px solid var(--cyan);
-            padding: 8px 20px;
-            border-radius: 50px;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .language-toggle button.active {
-            background: var(--cyan);
-            color: #000;
-            font-weight: bold;
+            font-weight: 600;
         }
 
         .social-links {
             display: flex;
-            justify-content: center;
             gap: 15px;
             margin-top: 30px;
         }
 
         .social-links a {
             display: inline-block;
-            padding: 10px 25px;
-            background: #00e1ff10;
+            padding: 10px 20px;
+            background: rgba(0, 242, 254, 0.1);
             color: var(--cyan);
             border-radius: 50px;
             text-decoration: none;
             border: 1px solid var(--cyan);
             transition: all 0.3s;
+            font-weight: 500;
         }
 
         .social-links a:hover {
@@ -212,12 +253,141 @@
             transform: translateY(-3px);
         }
 
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #00f2fe30;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--cyan);
+            box-shadow: 0 5px 15px #00f2fe20;
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--cyan);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #00f2fe30;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px #00f2fe20;
+            border-color: var(--cyan);
+        }
+
+        .project-img {
+            height: 200px;
+            background: #00f2fe10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cyan);
+            font-size: 3rem;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            color: var(--snow-blue);
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            color: #b0b0b0;
+            margin-bottom: 15px;
+        }
+
+        .project-links a {
+            color: var(--cyan);
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .project-links a:hover {
+            text-shadow: 0 0 10px var(--cyan);
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--cyan);
+            box-shadow: 0 0 30px #00f2fe20;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--snow-blue);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0, 242, 254, 0.05);
+            border: 1px solid #00f2fe30;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--cyan);
+            box-shadow: 0 0 10px #00f2fe30;
+        }
+
         /* Footer */
         footer {
             text-align: center;
             padding: 40px 0;
-            margin-top: 50px;
-            border-top: 1px solid #00e1ff20;
+            background: #0a0a12;
+            border-top: 1px solid #00f2fe20;
         }
 
         footer p {
@@ -229,9 +399,21 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
-            .about-card {
-                padding: 30px 20px;
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .profile-img {
+                margin-bottom: 30px;
+            }
+
+            .bio {
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
             }
         }
     </style>
@@ -239,84 +421,149 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">Gentel</a>
-                <div class="nav-links">
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </nav>
-        </div>
+        <nav>
+            <a href="#" class="logo">Gentel</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>Gentel | جنتل</h1>
-            <p>Developer & Programmer | مطور وبرمجي</p>
-            <a href="#about" class="btn">About Me | تعرف علي</a>
+        <div class="hero-content">
+            <h1>Cyber Developer</h1>
+            <p>Building digital experiences with clean code and futuristic design</p>
+            <a href="#about" class="btn">Explore My World</a>
         </div>
     </section>
 
-    <!-- About Me Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-card">
-                <h2>About Me | عني</h2>
-                
-                <div class="language-toggle">
-                    <button onclick="showEnglish()" class="active">English</button>
-                    <button onclick="showArabic()">العربية</button>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-card">
+            <div class="about-content">
+                <div class="profile-img">
+                    <img src="https://cdn.discordapp.com/avatars/1024767702239297567/490767471992229fa31fd6e05a6acbec.webp" alt="Gentel">
                 </div>
-                
-                <div class="about-content">
-                    <!-- English Bio -->
-                    <div id="english-bio" class="bio">
-                        <p><strong>Hi, I'm Gentel.</strong> I'm a <strong>developer/programmer</strong> passionate about coding and technology.</p>
-                        <p>I work on <strong>Linux/Windows</strong> and enjoy exploring new tools.</p>
-                        <p>I'm from <strong>Hail, Saudi Arabia</strong>, and I'm <strong>17 years old</strong>.</p>
-                        <p>When I'm not coding, I like gaming and connecting with people online.</p>
-                    </div>
-                    
-                    <!-- Arabic Bio -->
-                    <div id="arabic-bio" class="bio" style="display: none;">
-                        <p><strong>مرحباً، أنا جنتل.</strong> أنا <strong>مطور/مبرمج</strong> شغوف بالبرمجة والتكنولوجيا.</p>
-                        <p>أعمل على <strong>لينكس وويندوز</strong> وأحب استكشاف الأدوات الجديدة.</p>
-                        <p>أنا من <strong>حائل، السعودية</strong>، وعمري <strong>17 سنة</strong>.</p>
-                        <p>عندما لا أكون أبرمج، أحب الألعاب والتواصل مع الآخرين.</p>
-                    </div>
-                    
+                <div class="bio">
+                    <p><strong>Hi, I'm Gentel.</strong> A passionate <strong>developer/programmer</strong> from <strong>Hail, Saudi Arabia</strong>.</p>
+                    <p>I'm <strong>17 years old</strong> and work across <strong>Linux/Windows</strong> environments.</p>
+                    <p>When I'm not coding, you'll find me gaming or exploring new tech trends.</p>
                     <div class="social-links">
                         <a href="https://guns.lol/tf5m" target="_blank">Guns.lol</a>
                         <a href="https://tellonym.me/igentel" target="_blank">Tellonym</a>
+                        <a href="#" target="_blank">Discord</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <p>© 2024 Gentel. All Rights Reserved</p>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h3>Web Dev</h3>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🐧</div>
+                <h3>Linux</h3>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🔧</div>
+                <h3>Scripting</h3>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🎨</div>
+                <h3>UI Design</h3>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📱</div>
+                <h3>Mobile</h3>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">⚙️</div>
+                <h3>DevOps</h3>
+            </div>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        function showEnglish() {
-            document.getElementById('english-bio').style.display = 'block';
-            document.getElementById('arabic-bio').style.display = 'none';
-            document.querySelector('.language-toggle button:nth-child(1)').classList.add('active');
-            document.querySelector('.language-toggle button:nth-child(2)').classList.remove('active');
-        }
-        
-        function showArabic() {
-            document.getElementById('english-bio').style.display = 'none';
-            document.getElementById('arabic-bio').style.display = 'block';
-            document.querySelector('.language-toggle button:nth-child(1)').classList.remove('active');
-            document.querySelector('.language-toggle button:nth-child(2)').classList.add('active');
-        }
-    </script>
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img">
+                    🌐
+                </div>
+                <div class="project-info">
+                    <h3>Portfolio Website</h3>
+                    <p>A responsive personal portfolio built with HTML/CSS/JS.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="#" target="_blank">Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    🤖
+                </div>
+                <div class="project-info">
+                    <h3>Discord Bot</h3>
+                    <p>Custom bot for server moderation and entertainment.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Invite</a>
+                        <a href="#" target="_blank">Docs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    🛠️
+                </div>
+                <div class="project-info">
+                    <h3>Toolkit App</h3>
+                    <p>Utility application for developers.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-form">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" placeholder="Your message..."></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Gentel | Built with passion</p>
+    </footer>
 </body>
 </html>

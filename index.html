@@ -9,8 +9,9 @@
         :root {
             --sky-blue: #87CEEB;
             --deep-sky: #00BFFF;
-            --dark: #0F172A;
+            --dark: #000000;
             --light: #F8FAFC;
+            --card-bg: #0A0A0A;
         }
         
         * {
@@ -24,6 +25,9 @@
             color: var(--light);
             line-height: 1.7;
             font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         
         .rtl {
@@ -35,11 +39,14 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         header {
-            background-color: rgba(15, 23, 42, 0.95);
-            padding: 20px 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -55,11 +62,28 @@
         }
         
         .logo {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 600;
             color: var(--sky-blue);
             text-decoration: none;
             letter-spacing: 0.5px;
+        }
+        
+        .header-title {
+            text-align: center;
+            padding: 80px 0 20px;
+        }
+        
+        .header-title h1 {
+            font-size: 1.5rem;
+            color: var(--sky-blue);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .header-title p {
+            font-size: 1rem;
+            color: #94A3B8;
         }
         
         .nav-links {
@@ -72,7 +96,7 @@
             text-decoration: none;
             transition: all 0.3s ease;
             font-weight: 500;
-            font-size: 17px;
+            font-size: 15px;
         }
         
         .nav-links a:hover {
@@ -82,7 +106,7 @@
         .language-toggle {
             display: flex;
             gap: 10px;
-            margin-top: 20px;
+            margin: 30px auto;
             justify-content: center;
         }
         
@@ -103,37 +127,25 @@
             color: var(--dark);
         }
         
-        .hero {
-            height: 100vh;
+        main {
+            flex: 1;
             display: flex;
-            align-items: center;
-            text-align: center;
-            padding-top: 80px;
-            background: radial-gradient(circle at 50% 50%, rgba(0, 191, 255, 0.1) 0%, transparent 60%);
+            flex-direction: column;
+            justify-content: center;
         }
         
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            color: var(--sky-blue);
-            font-weight: 600;
-            letter-spacing: 1px;
+        .section {
+            padding: 40px 0;
+            width: 100%;
         }
         
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #94A3B8;
-        }
-        
-        section {
-            padding: 100px 0;
+        .about-section {
+            margin: auto;
         }
         
         .section-title {
-            font-size: 2.8rem;
-            margin-bottom: 60px;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
             text-align: center;
             color: var(--sky-blue);
             font-weight: 600;
@@ -143,22 +155,21 @@
         .section-title::after {
             content: '';
             display: block;
-            width: 80px;
-            height: 4px;
+            width: 60px;
+            height: 3px;
             background: var(--deep-sky);
             margin: 15px auto 0;
             border-radius: 2px;
         }
         
         .about-card {
-            background-color: rgba(15, 23, 42, 0.7);
-            border-radius: 20px;
-            padding: 50px;
-            max-width: 800px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 700px;
             margin: 0 auto;
             border: 1px solid rgba(135, 206, 235, 0.3);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 10px 30px rgba(0, 191, 255, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 191, 255, 0.1);
         }
         
         .bio {
@@ -167,7 +178,7 @@
         }
         
         .bio p {
-            margin-bottom: 18px;
+            margin-bottom: 15px;
             color: #E2E8F0;
             line-height: 1.8;
         }
@@ -177,22 +188,28 @@
             font-weight: 600;
         }
         
+        .skills-section {
+            margin-top: auto;
+            padding-bottom: 60px;
+        }
+        
         .skills {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
+            gap: 12px;
+            margin-top: 30px;
         }
         
         .skill {
             background-color: rgba(135, 206, 235, 0.1);
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 50px;
             border: 1px solid rgba(135, 206, 235, 0.3);
             transition: all 0.3s;
             font-weight: 500;
             color: var(--sky-blue);
+            font-size: 0.95rem;
         }
         
         .skill:hover {
@@ -203,13 +220,14 @@
         
         footer {
             text-align: center;
-            padding: 40px 0;
+            padding: 25px 0;
             border-top: 1px solid rgba(135, 206, 235, 0.2);
+            margin-top: auto;
         }
         
         footer p {
             color: #64748B;
-            font-size: 15px;
+            font-size: 14px;
         }
         
         .hidden {
@@ -217,12 +235,16 @@
         }
         
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .header-title h1 {
+                font-size: 1.3rem;
+            }
+            
+            .header-title p {
+                font-size: 0.9rem;
             }
             
             .section-title {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
             
             .about-card {
@@ -231,6 +253,10 @@
             
             .nav-links {
                 gap: 15px;
+            }
+            
+            .skill {
+                padding: 10px 20px;
             }
         }
     </style>
@@ -249,67 +275,66 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Main Content -->
+    <main>
         <div class="container">
-            <h1>Developer & Programmer | مطور و مبرمج</h1>
-            <p>Passionate about technology and coding | شغوف بالتكنولوجيا والبرمجة</p>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Me | عني</h2>
-            <div class="about-card">
-                <div class="language-toggle">
-                    <button onclick="showEnglish()" class="active">English</button>
-                    <button onclick="showArabic()">العربية</button>
-                </div>
-                
-                <!-- English Bio -->
-                <div id="english-bio" class="bio">
-                    <p><strong>Hello I am Gentel</strong></p>
-                    <p>I am a <strong>developer / programmer</strong></p>
-                    <p>I use <strong>Linux and Windows</strong></p>
-                    <p>I love <strong>Virtual Machines</strong></p>
-                    <p>My Programming Languages:</p>
-                    <p><strong>JavaScript / Python</strong> Trying to learn <strong>C++</strong></p>
-                    <p>I am <strong>17</strong></p>
-                    <p>From <strong>Hail</strong></p>
-                </div>
-                
-                <!-- Arabic Bio -->
-                <div id="arabic-bio" class="bio rtl hidden">
-                    <p><strong>السلام عليكم انا جنتل</strong></p>
-                    <p>انا <strong>مطور / مبرمج</strong></p>
-                    <p>استعمل <strong>لينكس و ويندوز</strong></p>
-                    <p>احب <strong>الفيرتشل مشين الي هو الجهاز الوهمي</strong></p>
-                    <p>استعمل لغة:</p>
-                    <p><strong>جافا سكربت / بايثون</strong> و <strong>سي بلس بلس قيد التعليم</strong></p>
-                    <p>عمري <strong>17</strong></p>
-                    <p>من <strong>حايل</strong></p>
-                </div>
+            <!-- Small Header Title -->
+            <div class="header-title">
+                <h1>Developer & Programmer | مطور و مبرمج</h1>
+                <p>Passionate about technology and coding | شغوف بالتكنولوجيا والبرمجة</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Skills | مهاراتي</h2>
-            <div class="about-card">
-                <div class="skills">
-                    <div class="skill">JavaScript</div>
-                    <div class="skill">Python</div>
-                    <div class="skill">C++ (Learning)</div>
-                    <div class="skill">Linux</div>
-                    <div class="skill">Windows</div>
-                    <div class="skill">Virtual Machines</div>
+            <!-- About Section (Centered) -->
+            <section id="about" class="section about-section">
+                <h2 class="section-title">About Me | عني</h2>
+                <div class="about-card">
+                    <div class="language-toggle">
+                        <button onclick="showEnglish()" class="active">English</button>
+                        <button onclick="showArabic()">العربية</button>
+                    </div>
+                    
+                    <!-- English Bio -->
+                    <div id="english-bio" class="bio">
+                        <p><strong>Hello I am Gentel</strong></p>
+                        <p>I am a <strong>developer / programmer</strong></p>
+                        <p>I use <strong>Linux and Windows</strong></p>
+                        <p>I love <strong>Virtual Machines</strong></p>
+                        <p>My Programming Languages:</p>
+                        <p><strong>JavaScript / Python</strong> Trying to learn <strong>C++</strong></p>
+                        <p>I am <strong>17</strong></p>
+                        <p>From <strong>Hail</strong></p>
+                    </div>
+                    
+                    <!-- Arabic Bio -->
+                    <div id="arabic-bio" class="bio rtl hidden">
+                        <p><strong>السلام عليكم انا جنتل</strong></p>
+                        <p>انا <strong>مطور / مبرمج</strong></p>
+                        <p>استعمل <strong>لينكس و ويندوز</strong></p>
+                        <p>احب <strong>الفيرتشل مشين الي هو الجهاز الوهمي</strong></p>
+                        <p>استعمل لغة:</p>
+                        <p><strong>جافا سكربت / بايثون</strong> و <strong>سي بلس بلس قيد التعليم</strong></p>
+                        <p>عمري <strong>17</strong></p>
+                        <p>من <strong>حايل</strong></p>
+                    </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- Skills Section (Bottom) -->
+            <section id="skills" class="section skills-section">
+                <h2 class="section-title">Skills | مهاراتي</h2>
+                <div class="about-card">
+                    <div class="skills">
+                        <div class="skill">JavaScript</div>
+                        <div class="skill">Python</div>
+                        <div class="skill">C++ (Learning)</div>
+                        <div class="skill">Linux</div>
+                        <div class="skill">Windows</div>
+                        <div class="skill">Virtual Machines</div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer>
